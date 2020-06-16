@@ -1,7 +1,6 @@
-const {User} = require('../models/userModel');
+const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-
 const {
   roles
 } = require('../roles')
@@ -51,11 +50,11 @@ exports.signup = async (req, res, next) => {
       email,
       password
     } = req.body
-    const hashedPassword = await hashPassword(password);
+    //const hashedPassword = await hashPassword(password);
     const newUser = new User({
-      email,
-      password: hashedPassword,
-      role: role || "basic"
+      email:email,
+      password:password,
+      role: role || "admin"
     });
     
     await newUser.save();
