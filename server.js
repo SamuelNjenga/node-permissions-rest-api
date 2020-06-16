@@ -7,8 +7,10 @@ const app = express();
 const port = 3006;
 app.use(cors());
 app.use(bodyParser.json());
-//Import Routes
 
+//Import Routes
+const routes = require('./routes/route')
+app.use('/', routes);
 mongoose.connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true
