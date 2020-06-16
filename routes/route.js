@@ -7,9 +7,7 @@ router.post('/signup', userController.signup);
 router.post('/login', userController.login);
 
 router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
-router.get('/ap',(req,res)=> {
-    res.send('hi')
-})
+
 router.get('/users', userController.allowIfLoggedin, userController.grantAccess('readAny', 'profile'), userController.getUsers);
 
 router.put('/user/:userId', userController.allowIfLoggedin, userController.grantAccess('updateAny', 'profile'), userController.updateUser);

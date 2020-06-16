@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -23,8 +21,6 @@ db.once('open', function () {
 });
 
 const PORT = process.env.PORT || 3006;
-
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
